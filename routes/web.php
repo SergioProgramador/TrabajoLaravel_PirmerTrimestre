@@ -15,5 +15,10 @@ Route::post('/addcompany', 'CompanyController@store');
 //Eliminar una empresa
 Route::delete('/delcompany/{id}', function($id){
 });
+//Crear ciclos
+Route::get('/create/grade','GradeController@create');
+Route::post('/create/grade','GradeController@store');
+//Mostrar ciclos
+Route::get('/grades', 'GradeController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');

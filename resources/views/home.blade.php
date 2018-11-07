@@ -34,5 +34,9 @@
        <a href="{{url('/addcompany')}}" class="btn btn-success">Crear Empresa</a>
        <a href="{{url('/listcompanies')}}" class="btn btn-default">Listado de Empresas</a>
     </div>
+    <div class="row">
+        <a href="{{url('/create/ticket')}}" class="btn btn-success">Create Ticket</a>
+        <a href="{{url('/tickets')}}" class="btn btn-default">All Tickets</a>
+     </div>
 </div>
 @endsection
