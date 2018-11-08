@@ -8,25 +8,15 @@ class company extends Model
 {
     protected $fillable = ['id', 'name', 'city', 'cp'];
 
-    public function store(Request $request)
+    public function updateCompany($data)
     {
-        $company = new company();
-        $data = $this->validate($request, [
-            'name'=>'required',
-            'city'=> 'required',
-            'cp'=> 'required'
-        ]);
-        $company->saveCompany($data);
-        return redirect('/home')->with('success', 'Has creado una nueva empresa!');
+        $company = $this->find($data['id']);
+        $company->id = auth()->company()->id;
+        $company->name = $data['name'];
+        $company->city = $data['city'];
+        $company->cp = $data['cp'];
+        $company->save();
+        return 1;
     }
 
-    public function saveTicket($data)       
-    {
-        $this->id = auth()->company()->id;
-        $this->name = $data['name'];
-        $this->city = $data['city'];
-        $this->cp = $data['cp'];
-        $this->save();
-        return 1;   
-    }
 }

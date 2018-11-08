@@ -2,14 +2,15 @@
 
 @section('content')
 <div class="container">
-    <table class="table table-striped">
+    <h3>LISTADO DE EMPRESAS</h3>
+    <table class="table table-striped table-hover">
         <thead>
             <tr>
-              <td>ID</td>
-              <td>Name</td>
-              <td>City</td>
-              <td>Cp</td>
-              <td colspan="2">Action</td>
+              <td><strong>ID</strong></td>
+              <td><strong>NOMBRE</strong></td>
+              <td><strong>CIUDAD</strong></td>
+              <td><strong>CÓDIGO POSTAL</strong></td>
+              <td colspan="2"><strong>ACCIÓN</strong></td>
             </tr>
         </thead>
         <tbody>
@@ -19,11 +20,24 @@
                 <td>{{$company->name}}</td>
                 <td>{{$company->city}}</td>
                 <td>{{$company->cp}}</td>
-                <td>Edit</td>
-                <td>Delete</td>
+                    <td><a href="{{action('CompanyController@edit',$company->id)}}" class="btn btn-primary">Editar</a></td>
+                <td>
+                    <form action="{{action('CompanyController@destroy', $company->id)}}" method="post">
+                    {{csrf_field()}}
+                    <input name="_method" type="hidden" value="DELETE">
+                    <button class="btn btn-danger" type="submit">Eliminar</button>
+                    </form>
+                </td>
+                
             </tr>
             @endforeach
         </tbody>
     </table>
+    <div class="container">
+    <div class="row">
+       <a href="{{url('/addcompany')}}" class="btn btn-success">Crear una Empresa</a>
+    </div>
+</div>
 <div>
 @endsection
+

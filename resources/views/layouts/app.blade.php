@@ -31,6 +31,29 @@
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name', 'Laravel') }}
                     </a>
+
+                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                        Empresas
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                        Ciclos
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                        Alumnos
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                        Solicitudes
+                    </a>
+
+                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                        Listados
+                    </a>
+
+
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

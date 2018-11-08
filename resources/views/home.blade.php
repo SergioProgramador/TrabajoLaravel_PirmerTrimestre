@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+    @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -22,17 +22,5 @@
 </div>
 @endsection
 
-@section('content')
-<div class="container">
-    @if(\Session::has('success'))
-        <div class="alert alert-success">
-            {{\Session::get('success')}}
-        </div>
-    @endif
-   
-    <div class="row">
-       <a href="{{url('/addcompany')}}" class="btn btn-success">Crear Empresa</a>
-       <a href="{{url('/listcompanies')}}" class="btn btn-default">Listado de Empresas</a>
-    </div>
-</div>
-@endsection
+
+
