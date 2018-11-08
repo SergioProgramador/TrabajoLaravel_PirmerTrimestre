@@ -19,12 +19,20 @@ Route::post('/editcompany/{id}','CompanyController@update');
 Route::delete('/delcompany/{id}','CompanyController@destroy');
 
 //RUTAS PARA LOS CICLOS
-Route::get('/listgrades', 'GradeController@index');
+//Crear ciclos
+Route::get('/create/grade','GradeController@create');
+Route::post('/create/grade','GradeController@store');
+//Mostrar ciclos
+Route::get('/grades', 'GradeController@index');
 
 //RUTAS PARAS LOS ALUMNOS
 
 //RUTAS PARA LAS SOLICITUDES
 
 //RUTAS PARA LOS LISTADOS
+Route::delete('/delcompany/{id}', function($id){
+});
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
