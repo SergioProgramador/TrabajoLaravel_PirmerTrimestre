@@ -39,13 +39,12 @@ Route::post('/addstudent','StudentController@store');
 Route::get('/liststudent', 'StudentController@index');
 //Editar un alumno
 Route::get('/editstudent/{id}','StudentController@edit');
-Route::post('/updatestudent/{id}','StudentController@update');
-Route::get('/updatestudent/{id}','StudentController@update');
+Route::put('/editstudent/{id}','StudentController@update');
 //Eliminar un alumno
-Route::post('/delstudent/{id}','StudentController@destroy');
+Route::delete('/delstudent/{id}', 'StudentController@destroy');
 
 //RUTAS PARA LAS SOLICITUDES
-//Mostrar las empresas
+//Mostrar las peticiones
 Route::get('/listpetitions', 'PetitionController@index');
 
 //RUTAS PARA LOS LISTADOS
