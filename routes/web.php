@@ -27,12 +27,21 @@ Route::post('/addgrade','GradeController@store');
 Route::get('/listgrade', 'GradeController@index');
 //Editar un ciclo
 Route::get('/editgrade/{id}','GradeController@edit');
-Route::post('/updategrade/{id}','GradeController@update');
-Route::get('/updategrade/{id}','GradeController@update');
+Route::put('/editgrade/{id}','GradeController@update');
 //Eliminar un ciclo
-Route::post('/delgrade/{id}','GradeController@destroy');
+Route::delete('/delgrade/{id}', 'GradeController@destroy');
 
 //RUTAS PARAS LOS ALUMNOS
+//Crear alumnos
+Route::get('/addstudent','StudentController@create');
+Route::post('/addstudent','StudentController@store');
+//Mostrar alumnos
+Route::get('/liststudent', 'StudentController@index');
+//Editar un alumno
+Route::get('/editstudent/{id}','StudentController@edit');
+Route::put('/editstudent/{id}','StudentController@update');
+//Eliminar un alumno
+Route::delete('/delstudent/{id}', 'StudentController@destroy');
 
 //RUTAS PARA LAS SOLICITUDES
 //Mostrar las solicitudes

@@ -40,11 +40,11 @@
                         Companies
                     </a>
                                         
-                    <a class="navbar-brand" href="{{ url('/listgrades') }}">
+                    <a class="navbar-brand" href="{{ url('/listgrade') }}">
                         Grades
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/liststudents') }}">
+                    <a class="navbar-brand" href="{{ url('/liststudent') }}">
                         Students
                     </a>
 
@@ -52,7 +52,7 @@
                         Petitions
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listlists') }}">
+                    <a class="navbar-brand" href="{{ url('/listlist') }}">
                         Lists
                     </a>
 
