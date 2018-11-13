@@ -27,10 +27,9 @@ Route::post('/addgrade','GradeController@store');
 Route::get('/listgrade', 'GradeController@index');
 //Editar un ciclo
 Route::get('/editgrade/{id}','GradeController@edit');
-Route::post('/updategrade/{id}','GradeController@update');
-Route::get('/updategrade/{id}','GradeController@update');
+Route::put('/editgrade/{id}','GradeController@update');
 //Eliminar un ciclo
-Route::post('/delgrade/{id}','GradeController@destroy');
+Route::delete('/delgrade/{id}', 'GradeController@destroy');
 
 //RUTAS PARAS LOS ALUMNOS
 //Crear alumnos

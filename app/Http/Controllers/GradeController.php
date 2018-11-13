@@ -22,27 +22,23 @@ class GradeController extends Controller
     //METODO EDITAR
     public function edit($id)
     {
-        $grade = Grade::where('id', $id)->first();
-
+        $grade = Grade::find($id);
         return view('grade.edit', compact('grade', 'id'));
     }
 
     //METODO ACTUALIZAR
     public function update(Request $request, $id)
     {
-        $grade = new Grade();
-        $data = $this->validate($request, [
-            'name'=>'required',
-            'level'=> 'required'
-        ]);
-        $data['id'] = $id;
-        $grade->updateGrade($data);
-
-        return redirect('/listgrade')->with('success', 'Grade data has been updated.');
+        $grade = Grade::find($id);
+        $grade -> name = $request -> name;
+        $grade -> level = $request -> level;
+        
+        $grade -> save();
+        return redirect('/listgrade')->with('success', 'Grade has been succefully updated!');
     }
     
 
-    //CREAR UNA EMPRESA
+    //CREAR UNA GRADE
     public function store(Request $request)
     {
         
@@ -54,5 +50,12 @@ class GradeController extends Controller
         $grade->save();
         return redirect('/listgrade')->with('status','You have created a new grade.');
     }
+    //ELIMINAR UNA GRADE
+    public function destroy($id)
+    {
+        $grade = Grade::find($id);
+        $grade->delete();
 
+        return back();
+    }
 }
