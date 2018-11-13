@@ -12,10 +12,10 @@
     </div><br />
 @endif
     <div class="row">
-    <form method="post" action="{{action('CompanyController@update', $id)}}" >
+    <form method="POST" action="{{url('editcompany')}}/{{$company->id}}" >
         {{csrf_field()}}
-        <input name="_method" type="hidden" value="PATCH">
-
+        {{method_field('PUT')}}
+        <!--<input name="_method" type="hidden" value="PUT">-->
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="name">Nombre:</label>
@@ -31,12 +31,16 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="cp">Codigo Postal:</label>
-            <input type="text" class="form-control" name="city" value={{$company->cp}} />
+            <input type="text" class="form-control" name="cp" value={{$company->cp}} />
         </div>
-
+        
         <button type="submit" class="btn btn-primary">Actualizar</button>
-        <a href="{{url('/listcompanies')}}" class="btn btn-light">Cancelar</a>
         </form>
     </div>
 </div>
 @endsection
+
+
+
+
+

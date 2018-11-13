@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+
+
 <div class="container">
     <h3>LISTADO DE EMPRESAS</h3>
     <table class="table table-striped table-hover">
@@ -20,15 +23,14 @@
                 <td>{{$company->name}}</td>
                 <td>{{$company->city}}</td>
                 <td>{{$company->cp}}</td>
-                    <td><a href="{{action('CompanyController@edit',$company->id)}}" class="btn btn-primary">Editar</a></td>
+                    <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary">Editar</a></td>
                 <td>
-                    <form action="{{action('CompanyController@destroy', $company->id)}}" method="post">
+                    <form action="delcompany/{{$company->id}}" method="post">
                     {{csrf_field()}}
                     <input name="_method" type="hidden" value="DELETE">
                     <button class="btn btn-danger" type="submit">Eliminar</button>
                     </form>
-                </td>
-                
+                </td>   
             </tr>
             @endforeach
         </tbody>

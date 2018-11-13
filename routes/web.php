@@ -14,24 +14,19 @@ Route::get('/addcompany', 'CompanyController@create');
 Route::post('/addcompany', 'CompanyController@store');
 //Editar una empresa
 Route::get('/editcompany/{id}','CompanyController@edit');
-Route::post('/editcompany/{id}','CompanyController@update');
+Route::put('/editcompany/{id}','CompanyController@update');
 //Eliminar una empresa
-Route::delete('/delcompany/{id}','CompanyController@destroy');
+Route::delete('/delcompany/{id}', 'CompanyController@destroy');
 
 //RUTAS PARA LOS CICLOS
-//Crear ciclos
-Route::get('/create/grade','GradeController@create');
-Route::post('/create/grade','GradeController@store');
-//Mostrar ciclos
-Route::get('/grades', 'GradeController@index');
 
 //RUTAS PARAS LOS ALUMNOS
 
 //RUTAS PARA LAS SOLICITUDES
+//Mostrar las empresas
+Route::get('/listpetitions', 'PetitionController@index');
 
 //RUTAS PARA LOS LISTADOS
-Route::delete('/delcompany/{id}', function($id){
-});
 
 
 

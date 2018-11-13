@@ -32,10 +32,14 @@
                         {{ config('app.name', 'Laravel') }}
                     </a>
 
+                    <ul class="nav navbar-nav">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </ul>
+
                     <a class="navbar-brand" href="{{ url('/listcompanies') }}">
                         Empresas
                     </a>
-
+                                        
                     <a class="navbar-brand" href="{{ url('/listcompanies') }}">
                         Ciclos
                     </a>
@@ -44,7 +48,7 @@
                         Alumnos
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
+                    <a class="navbar-brand" href="{{ url('/listpetitions') }}">
                         Solicitudes
                     </a>
 
@@ -93,6 +97,12 @@
                 </div>
             </div>
         </nav>
+
+        @if(session('message'))
+            <div class="alert alert-{{ session('message'[0])}}">
+                {{session('message')[1]}}
+            </div>
+        @endif
 
         @yield('content')
     </div>
