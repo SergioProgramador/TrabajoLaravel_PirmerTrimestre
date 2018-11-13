@@ -33,9 +33,11 @@
             <label for="cp">Codigo Postal:</label>
             <input type="text" class="form-control" name="cp" value={{$company->cp}} />
         </div>
-        
-        <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <a href="{{url('/listcompanies')}}" class="btn btn-light">Cancelar</a>
+        
     </div>
 </div>
 @endsection

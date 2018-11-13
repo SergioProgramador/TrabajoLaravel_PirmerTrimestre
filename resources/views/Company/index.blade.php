@@ -1,9 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
 <div class="container">
     <h3>LISTADO DE EMPRESAS</h3>
     <table class="table table-striped table-hover">

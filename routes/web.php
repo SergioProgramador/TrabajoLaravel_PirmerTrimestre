@@ -35,7 +35,7 @@ Route::post('/delgrade/{id}','GradeController@destroy');
 //RUTAS PARAS LOS ALUMNOS
 
 //RUTAS PARA LAS SOLICITUDES
-//Mostrar las empresas
+//Mostrar las solicitudes
 Route::get('/listpetitions', 'PetitionController@index');
 
 //RUTAS PARA LOS LISTADOS
