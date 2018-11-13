@@ -3,43 +3,56 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Ticket;
+use App\Grade;
 
 class GradeController extends Controller
 {
-    /**
-  * Show the form for creating a new resource.
-  *
-  * @return \Illuminate\Http\Response
-  */
-public function create()
-{
-   return view('user.create');
-}
- /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    //FUNCION QUE DEVUELVE LA VISTA CREATE
+    public function create(){
+        return view('grade.create');
+    }
+
+    public function index()
+    {
+        $grades = Grade::orderBy('id')->paginate();
+                        
+        return view('grade.index',compact('grades'));
+    }  
+    
+    //METODO EDITAR
+    public function edit($id)
+    {
+        $grade = Grade::where('id', $id)->first();
+
+        return view('grade.edit', compact('grade', 'id'));
+    }
+
+    //METODO ACTUALIZAR
+    public function update(Request $request, $id)
     {
         $grade = new Grade();
         $data = $this->validate($request, [
-            'description'=>'required',
-            'title'=> 'required'
+            'name'=>'required',
+            'level'=> 'required'
         ]);
-       
-        $grade->saveGrade($data);
-        return redirect('/home')->with('success', 'New grade has been created! Wait sometime to get resolved');
+        $data['id'] = $id;
+        $grade->updateGrade($data);
+
+        return redirect('/listgrade')->with('success', 'Grade data has been updated.');
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {        
-        return view('grade.index',compact('grades'));
+    
+
+    //CREAR UNA EMPRESA
+    public function store(Request $request)
+    {
+        
+        $grade = new Grade(array(
+            'name' => $request->get('name'),
+            'level' => $request->get('level')
+        ));
+
+        $grade->save();
+        return redirect('/listgrade')->with('status','You have created a new grade.');
     }
+
 }

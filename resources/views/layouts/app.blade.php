@@ -37,23 +37,23 @@
                     </ul>
 
                     <a class="navbar-brand" href="{{ url('/listcompanies') }}">
-                        Empresas
+                        Companies
                     </a>
                                         
-                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
-                        Ciclos
+                    <a class="navbar-brand" href="{{ url('/listgrades') }}">
+                        Grades
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
-                        Alumnos
+                    <a class="navbar-brand" href="{{ url('/liststudents') }}">
+                        Students
                     </a>
 
                     <a class="navbar-brand" href="{{ url('/listpetitions') }}">
-                        Solicitudes
+                        Petitions
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listcompanies') }}">
-                        Listados
+                    <a class="navbar-brand" href="{{ url('/listlists') }}">
+                        Lists
                     </a>
 
 

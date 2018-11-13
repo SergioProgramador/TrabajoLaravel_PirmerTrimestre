@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class grade extends Model
 {
     protected $fillable = ['name', 'level'];
-    public function saveTicket($data)
+    public function updateGrade($data)
 {
         
         $this->name = $data['name'];
