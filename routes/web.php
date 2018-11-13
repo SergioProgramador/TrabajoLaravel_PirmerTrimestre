@@ -33,6 +33,17 @@ Route::get('/updategrade/{id}','GradeController@update');
 Route::post('/delgrade/{id}','GradeController@destroy');
 
 //RUTAS PARAS LOS ALUMNOS
+//Crear alumnos
+Route::get('/addstudent','StudentController@create');
+Route::post('/addstudent','StudentController@store');
+//Mostrar alumnos
+Route::get('/liststudent', 'StudentController@index');
+//Editar un alumno
+Route::get('/editstudent/{id}','StudentController@edit');
+Route::post('/updatestudent/{id}','StudentController@update');
+Route::get('/updatestudent/{id}','StudentController@update');
+//Eliminar un alumno
+Route::post('/delstudent/{id}','StudentController@destroy');
 
 //RUTAS PARA LAS SOLICITUDES
 //Mostrar las empresas
