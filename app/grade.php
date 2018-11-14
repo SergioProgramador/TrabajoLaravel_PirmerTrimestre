@@ -17,7 +17,7 @@ class grade extends Model
     }
 
     public function grades_petitions(){
-        return $this->belongTo('App\Petition');
+        return $this->hasMany(Petition::class);
     }
 }
 

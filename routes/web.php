@@ -44,6 +44,9 @@ Route::put('/editstudent/{id}','StudentController@update');
 Route::delete('/delstudent/{id}', 'StudentController@destroy');
 
 //RUTAS PARA LAS SOLICITUDES
+//Crear solicitud
+Route::get('/addpetition','PetitionController@create');
+Route::post('/addpetition','PetitionController@store');
 //Mostrar las solicitudes
 Route::get('/listpetitions', 'PetitionController@index');
 
