@@ -11,7 +11,7 @@ class PetitionController extends Controller
 {
     public function index()
     {
-        $petitions = Petition::orderBy('id')->paginate();           
+        $petitions = Petition::with('petitions_companies', 'petitions_grades')->get();           
         return view('petition.index',compact('petitions'));
     } 
 
