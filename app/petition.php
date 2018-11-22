@@ -18,10 +18,6 @@ class Petition extends Model
         return $this->belongsTo(Grade::class, 'id_grade');
     }
 
-
-    public function scopeGrade ($query, $idgrade){
-        $query->where('id_grade', $idgrade);
-    }
-
+   
     
 }

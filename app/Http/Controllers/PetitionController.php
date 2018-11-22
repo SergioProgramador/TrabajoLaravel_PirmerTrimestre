@@ -16,11 +16,31 @@ class PetitionController extends Controller
     } 
 
     public function list1(Request $request)
-    {
-        $grades = Grade::all();
-        $petitions = Petition::with('petitions_companies', 'petitions_grades')->get(); 
-        $pet=Petition::grade($request->get('id_grade'))->orderBy('id')->paginate();
-        return view('petition.list',compact('petitions', 'grades', 'pet'));
+    {  
+        $grado = $request->get('id_grade');
+        if(!is_null($grado)){
+            $petitions = Petition::where('id_grade', $grado)->orderBy('id')->with('petitions_companies', 'petitions_grades')->get(); 
+        }else{
+            $petitions = Petition::with('petitions_companies', 'petitions_grades')->get();
+        }
+        $grades = Grade::All();
+        return view('petition.list',compact('petitions', 'grades'));
+    }
+
+    public function list2(Request $request)
+    {  
+        $grado = $request->get('id_grade');
+
+        if(!is_null($grado)){
+            $petitions = Petition::where('id_grade', $grado)->orderBy('id')->with('petitions_companies', 'petitions_grades')->get(); 
+        }else{
+
+            $petitions = Petition::with('petitions_companies', 'petitions_grades')->get();
+        }
+
+        $grades = Grade::All();
+    
+        return view('petition.list2',compact('petitions', 'grades'));
     } 
 
     //CREAR UNA PETICION

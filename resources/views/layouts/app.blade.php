@@ -52,12 +52,32 @@
                         Petitions
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/lists') }}">
+                    <span class="navbar-brand">
+                        <span class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                        Listings
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ url('/listDate') }}">
+                                                Peticiones por fecha
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/listGrades') }}">
+                                                Peticiones por ciclo
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </span>
+                    </span>
+                    <!--
+                    <a class="navbar-brand" href="{{ url('/list') }}">
                         Lists
                     </a>
-
-
-
+                    -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

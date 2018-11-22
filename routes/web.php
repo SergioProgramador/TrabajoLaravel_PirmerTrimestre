@@ -56,7 +56,10 @@ Route::put('/editpetition/{id}','PetitionController@update');
 Route::delete('/delpetition/{id}', 'PetitionController@destroy');
 
 //Mostrar las peticiones en los listados
-Route::get('/lists', 'PetitionController@list1');
+Route::get('/listDate', 'PetitionController@list1');
+Route::get('/listGrades', 'PetitionController@list2');
+
+
 
 
 
