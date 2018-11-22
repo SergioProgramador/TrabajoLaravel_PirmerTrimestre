@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class petition extends Model
+class Petition extends Model
 {
 
     protected $table = 'petitions';
@@ -16,6 +16,11 @@ class petition extends Model
 
     public function petitions_grades(){
         return $this->belongsTo(Grade::class, 'id_grade');
+    }
+
+
+    public function scopeGrade ($query, $idgrade){
+        $query->where('id_grade', $idgrade);
     }
 
     

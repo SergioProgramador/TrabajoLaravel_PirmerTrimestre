@@ -52,7 +52,7 @@
                         Petitions
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listlist') }}">
+                    <a class="navbar-brand" href="{{ url('/lists') }}">
                         Lists
                     </a>
 

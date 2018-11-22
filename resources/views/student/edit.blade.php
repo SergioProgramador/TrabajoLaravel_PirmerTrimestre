@@ -36,6 +36,7 @@
 
 
         <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{url('/liststudent')}}" class="btn btn-light">Cancel</a>
         </form>
     </div>
 </div>

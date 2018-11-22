@@ -10,6 +10,7 @@
               <td><strong>GRADE</strong></td>
               <td><strong>TYPE</strong></td>
               <td><strong>Nº STUDENTS</strong></td>
+              <td><strong>CREATION DATE</strong></td>
               <td colspan="2"><strong></strong>ACTION</td>
             </tr>
         </thead>
@@ -20,13 +21,14 @@
                     <td>{{$petition->petitions_grades->name}}</td>
                     <td>{{$petition->type}}</td>
                     <td>{{$petition->n_students}}</td>
-                        <td><a class="btn btn-primary">Editar</a></td>
+                    <td>{{$petition->created_at}}</td>
+                    <td><a href="{{action('PetitionController@edit', $petition->id)}}" class="btn btn-primary">Editar</a></td>
                     <td>
-                        <form method="post">
+                        <form action="delpetition/{{$petition->id}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger" type="submit">Eliminar</button>
-                        </form>
+                    </form>
                     </td>   
                 </tr>
             @endforeach    

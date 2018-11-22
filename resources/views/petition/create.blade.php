@@ -26,6 +26,7 @@
     <div class="form-group">
         <label for="id_company">Company</label>
         <select class="form-control" name="id_company">
+            <option></option>
             @foreach($companies as $company)
                 <option value="{{$company->id}}">{{$company->name}}</option>
             @endforeach
@@ -35,6 +36,7 @@
     <div class="form-group">
         <label for="id_grade">Grade</label>
         <select class="form-control" name="id_grade">
+        <option></option>
             @foreach($grades as $grade)
                 <option value="{{$grade->id}}">{{$grade->name}}</option>
             @endforeach
@@ -44,6 +46,7 @@
     <div class="form-group">   
         <label for="type">Type</label>
         <select class="form-control" name="type">
+            <option></option>
             <option value="dual">Dual</option>
             <option value="contract">Contract</option>
             <option value="fct">FCT</option>

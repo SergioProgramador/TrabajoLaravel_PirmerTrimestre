@@ -20,7 +20,7 @@
                 <td>{{$company->name}}</td>
                 <td>{{$company->city}}</td>
                 <td>{{$company->cp}}</td>
-                    <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary">Editar</a></td>
+                <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary">Editar</a></td>
                 <td>
                     <form action="delcompany/{{$company->id}}" method="post">
                     {{csrf_field()}}
