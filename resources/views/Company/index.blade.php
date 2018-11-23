@@ -2,40 +2,42 @@
 
 @section('content')
 <div class="container">
-    <h3>LISTADO DE EMPRESAS</h3>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-              <td><strong>ID</strong></td>
-              <td><strong>NOMBRE</strong></td>
-              <td><strong>CIUDAD</strong></td>
-              <td><strong>CÓDIGO POSTAL</strong></td>
-              <td colspan="2"><strong>ACCIÓN</strong></td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($companies as $company)
-            <tr>
-                <td>{{$company->id}}</td>
-                <td>{{$company->name}}</td>
-                <td>{{$company->city}}</td>
-                <td>{{$company->cp}}</td>
-                <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary">Editar</a></td>
-                <td>
-                    <form action="delcompany/{{$company->id}}" method="post">
-                    {{csrf_field()}}
-                    <input name="_method" type="hidden" value="DELETE">
-                    <button class="btn btn-danger" type="submit">Eliminar</button>
-                    </form>
-                </td>   
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <h3 style="text-align: center">COMPANY'S LIST</h3>
+    <br/>
+    <div style="text-align: center">
+        <table class="table">
+            <thead>
+                <tr class="bg-success">
+                <td><strong>NAME</strong></td>
+                <td><strong>CITY</strong></td>
+                <td><strong>CP</strong></td>
+                <td colspan="2"><strong>ACTION</strong></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($companies as $company)
+                <tr>
+                    <td>{{$company->name}}</td>
+                    <td>{{$company->city}}</td>
+                    <td>{{$company->cp}}</td>
+                    <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary" >Edit</a></td>
+                    <td>
+                        <form action="delcompany/{{$company->id}}" method="post">
+                        {{csrf_field()}}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>   
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
     <div class="container">
     <div class="row">
-       <a href="{{url('/addcompany')}}" class="btn btn-success">Crear una Empresa</a>
+       <a href="{{url('/addcompany')}}" class="btn btn-success">Create Company</a>
     </div>
+<br>
 </div>
 <div>
 @endsection

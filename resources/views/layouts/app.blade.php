@@ -54,19 +54,19 @@
 
                     <span class="navbar-brand">
                         <span class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
-                                        Listings
+                                    <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Listings <span class="caret"></span>
                                     </a>
 
                                     <ul class="dropdown-menu">
                                         <li>
                                             <a href="{{ url('/listDate') }}">
-                                                Peticiones por fecha
+                                                Petitions by Date
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ url('/listGrades') }}">
-                                                Peticiones por ciclo
+                                                Petitions by Grade
                                             </a>
                                         </li>
                                     </ul>

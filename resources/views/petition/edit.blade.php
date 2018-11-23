@@ -27,20 +27,33 @@
         </div>
 
         <div class="form-group">
-            <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">Ciudad:</label>
-            <input type="text" class="form-control" name="city" value={{$company->city}} />
+            <label for="id_grade">Grade</label>
+            <select class="form-control" name="id_grade">
+                @foreach($grades as $grade)
+                    <option value="{{$grade->id}}">{{$grade->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">   
+            <label for="type">Type</label>
+            <select class="form-control" name="type">
+                <option></option>
+                <option value="dual">Dual</option>
+                <option value="contract">Contract</option>
+                <option value="fct">FCT</option>
+            </select>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="cp">Codigo Postal:</label>
-            <input type="text" class="form-control" name="cp" value={{$company->cp}} />
+            <label for="n_students">Nº Students:</label>
+            <input type="text" class="form-control" name="n_students"/>
         </div>
         </form>
 
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-        <a href="{{url('/listpetitions')}}" class="btn btn-light">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{url('/listpetitions')}}" class="btn btn-light">Cancel</a>
         
     </div>
 </div>

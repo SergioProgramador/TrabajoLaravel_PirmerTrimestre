@@ -17,12 +17,15 @@ class PetitionController extends Controller
 
     public function list1(Request $request)
     {  
-        $grado = $request->get('id_grade');
-        if(!is_null($grado)){
-            $petitions = Petition::where('id_grade', $grado)->orderBy('id')->with('petitions_companies', 'petitions_grades')->get(); 
+        $date_1=$request->get('date1');
+        $date_2=$request->get('date2');
+
+        if(!is_null($date_1) && !is_null($date_2)){
+            $petitions = Petition::whereBetween('created_at', [$date_1, $date_2])->orderBy('type')->with('petitions_companies', 'petitions_grades')->get();
         }else{
             $petitions = Petition::with('petitions_companies', 'petitions_grades')->get();
         }
+         
         $grades = Grade::All();
         return view('petition.list',compact('petitions', 'grades'));
     }
@@ -32,7 +35,7 @@ class PetitionController extends Controller
         $grado = $request->get('id_grade');
 
         if(!is_null($grado)){
-            $petitions = Petition::where('id_grade', $grado)->orderBy('id')->with('petitions_companies', 'petitions_grades')->get(); 
+            $petitions = Petition::where('id_grade', $grado)->orderBy('type')->with('petitions_companies', 'petitions_grades')->get(); 
         }else{
 
             $petitions = Petition::with('petitions_companies', 'petitions_grades')->get();
@@ -74,6 +77,8 @@ class PetitionController extends Controller
     //METODO ACTUALIZAR
     public function update(Request $request, $id)
     {
+        $companies = Company::all();
+        $grades = Grade::all();
         $petition = Petition::find($id);
         $petition -> id_company = $request -> id_company;
         $petition -> id_grade = $request -> id_grade;
@@ -81,7 +86,8 @@ class PetitionController extends Controller
         $petition -> n_students = $request -> n_students;
         
         $petition -> save();
-        return redirect('/listpetitions')->with('success', 'HAS ACTUALIZADO LA SOLICITUD!!');
+
+        return view('petition.index', compact('petition', 'companies', 'grades'));
     }
 
     //ELIMINAR UNA PETICION
