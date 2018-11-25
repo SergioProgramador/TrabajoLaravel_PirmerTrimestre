@@ -9,7 +9,7 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div><br />
+    </div><br/>
 @endif
     <div class="row">
     <form method="POST" action="{{url('editcompany')}}/{{$company->id}}" >
@@ -18,26 +18,24 @@
         <!--<input name="_method" type="hidden" value="PUT">-->
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="name">Nombre:</label>
-            <input type="text" class="form-control" name="name" value={{$company->name}} />
+            <label for="name">Company's Name:</label>
+            <input type="text" class="form-control" name="name" value={{$company->name}} style="width:200px" required/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="city">Ciudad:</label>
-            <input type="text" class="form-control" name="city" value={{$company->city}} />
+            <label for="city">City:</label>
+            <input type="text" class="form-control" name="city" value={{$company->city}} style="width:200px" required/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
-            <label for="cp">Codigo Postal:</label>
-            <input type="text" class="form-control" name="cp" value={{$company->cp}} />
+            <label for="cp">CP:</label>
+            <input type="text" class="form-control" name="cp" value={{$company->cp}} style="width:200px" required/>
         </div>
-        </form>
-
-        <button type="submit" class="btn btn-primary">Actualizar</button>
-        <a href="{{url('/listcompanies')}}" class="btn btn-light">Cancelar</a>
-        
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{{url('/listcompanies')}}" class="btn btn-light">Cancel</a>
+        </form>    
     </div>
 </div>
 @endsection

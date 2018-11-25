@@ -19,19 +19,19 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="name">Name:</label>
-            <input type="text" class="form-control" name="name" value={{$student->name}} />
+            <input type="text" class="form-control" name="name" value={{$student->name}} style="width:200px"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="lastname">Last Name:</label>
-            <input type="text" class="form-control" name="lastname" value={{$student->lastname}} />
+            <input type="text" class="form-control" name="lastname" value={{$student->lastname}} style="width:200px"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="age">Age:</label>
-            <input type="text" class="form-control" name="age" value={{$student->age}} />
+            <input type="text" class="form-control" name="age" value={{$student->age}} style="width:200px"/>
         </div>
 
 

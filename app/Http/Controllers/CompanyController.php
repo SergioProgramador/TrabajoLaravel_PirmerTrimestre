@@ -33,8 +33,10 @@ class CompanyController extends Controller
         $company -> city = $request -> city;
         $company -> cp = $request -> cp;
 
+        $request->session()->flash('alert-success', 'Company was successful edited!');
+
         $company -> save();
-        return redirect('/listcompanies')->with('success', 'HAS ACTUALIZADO LA EMPRESA!!');
+        return redirect('/listcompanies');
     }
     
     //CREAR UNA EMPRESA
@@ -47,14 +49,17 @@ class CompanyController extends Controller
         ));
 
         $company->save();
-        return redirect('/listcompanies')->with('succes', 'HAS CREADO UNA NUEVA EMPRESA!!');
+        $request->session()->flash('alert-success', 'Company was successful added!');
+        return redirect('/listcompanies');
     }
 
     //ELIMINAR UNA EMPRESA
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $company = Company::find($id);
         $company->delete();
+
+        $request->session()->flash('alert-success', 'Company was eliminated!');
 
         return back();
     }

@@ -23,7 +23,7 @@
                         <form action="delgrade/{{$grade->id}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar la petición?')">Delete</button>
                         </form>
                     </td>   
                 </tr>
@@ -33,7 +33,7 @@
     </div>
     <div class="container">
     <div class="row">
-       <a href="{{url('/addgrade')}}" class="btn btn-success">Create a grade</a>
+       <a href="{{url('/addgrade')}}" class="btn btn-success">Create Grade</a>
     </div>
 </div>
 <div>

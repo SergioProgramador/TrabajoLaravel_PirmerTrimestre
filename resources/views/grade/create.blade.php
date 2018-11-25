@@ -23,13 +23,13 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="name">Grade Name:</label>
-            <input type="text" class="form-control" name="name"/>
+            <input type="text" class="form-control" name="name" style="width:200px"/>
         </div>
         
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="level">Level:</label>
-            <input type="text" class="form-control" name="level"/>
+            <input type="text" class="form-control" name="level" style="width:200px"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Create</button>

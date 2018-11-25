@@ -55,7 +55,7 @@ class PetitionController extends Controller
             'type' => $request->get('type'),
             'n_students' => $request->get('n_students')
         ));
-
+        $request->session()->flash('alert-success', 'Petition was successful added!');
         $petition->save();
         return redirect('/listpetitions')->with('succes', 'HAS CREADO UNA NUEVA PETICION!!');
     }
@@ -70,8 +70,10 @@ class PetitionController extends Controller
     //METODO EDITAR
     public function edit($id)
     {
+        $companies = Company::all();
+        $grades = Grade::all();
         $petition = Petition::find($id);
-        return view('petition.edit', compact('petition', 'id'));
+        return view('petition.edit', compact('petition', 'id', 'companies', 'grades'));
     }
 
     //METODO ACTUALIZAR
@@ -85,17 +87,18 @@ class PetitionController extends Controller
         $petition -> type = $request -> type;
         $petition -> n_students = $request -> n_students;
         
+        $request->session()->flash('alert-success', 'Petition was successful edited!');
         $petition -> save();
 
-        return view('petition.index', compact('petition', 'companies', 'grades'));
+        return view('petition.index', compact('petition', 'companies', 'grades', 'id'));
     }
 
     //ELIMINAR UNA PETICION
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $petition = Petition::find($id);
         $petition->delete();
-
+        $request->session()->flash('alert-success', 'Petition was eliminated!');
         return back();
     }
 

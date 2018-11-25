@@ -4,6 +4,11 @@
 <div class="container">
     <h3 style="text-align: center">COMPANY'S LIST</h3>
     <br/>
+
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg) @if(Session::has('alert-' . $msg)) 
+        {{ Session::get('alert-' . $msg) }} 
+    @endif @endforeach
+    
     <div style="text-align: center">
         <table class="table">
             <thead>
@@ -21,13 +26,15 @@
                     <td>{{$company->city}}</td>
                     <td>{{$company->cp}}</td>
                     <td><a href="{{action('CompanyController@edit', $company->id)}}" class="btn btn-primary" >Edit</a></td>
+                    
                     <td>
                         <form action="delcompany/{{$company->id}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar la petición?')">Delete</button>
                         </form>
-                    </td>   
+                    </td>
+
                 </tr>
                 @endforeach
             </tbody>

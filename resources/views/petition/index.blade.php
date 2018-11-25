@@ -4,6 +4,11 @@
 <div class="container">
     <h3 style="text-align: center">PETITION'S LIST</h3>
     <br>
+    
+    @foreach (['danger', 'warning', 'success', 'info'] as $msg) @if(Session::has('alert-' . $msg)) 
+        {{ Session::get('alert-' . $msg) }} 
+    @endif @endforeach
+
     <div style="text-align: center">
         <table class="table table-striped table-hover">
             <thead>
@@ -29,7 +34,7 @@
                             <form action="delpetition/{{$petition->id}}" method="post">
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar la petición?')">Delete</button>
                         </form>
                         </td>   
                     </tr>

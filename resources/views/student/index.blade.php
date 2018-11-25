@@ -28,7 +28,7 @@
                         <form action="delstudent/{{$student->id}}" method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('¿Estás seguro de eliminar el registro?')">Delete</button>
                         </form>
                     </td>   
                 </tr>
@@ -38,7 +38,7 @@
     </div>
     <div class="container">
     <div class="row">
-       <a href="{{url('/addstudent')}}" class="btn btn-success">Add an student</a>
+       <a href="{{url('/addstudent')}}" class="btn btn-success">Create Student</a>
     </div>
 </div>
 <div>
