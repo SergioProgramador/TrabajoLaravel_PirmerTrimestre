@@ -17,6 +17,7 @@
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
+                
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -52,15 +53,35 @@
                         Petitions
                     </a>
 
-                    <a class="navbar-brand" href="{{ url('/listlist') }}">
+                    <span class="navbar-brand">
+                        <span class="dropdown">
+                                    <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                        Listings <span class="caret"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="{{ url('/listDate') }}">
+                                                Petitions by Date
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ url('/listGrades') }}">
+                                                Petitions by Grade
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                        </span>
+                    </span>
+                    <!--
+                    <a class="navbar-brand" href="{{ url('/list') }}">
                         Lists
                     </a>
-
-
-
+                    -->
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div Cid="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;

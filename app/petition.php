@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class petition extends Model
+class Petition extends Model
 {
 
     protected $table = 'petitions';
@@ -18,5 +18,6 @@ class petition extends Model
         return $this->belongsTo(Grade::class, 'id_grade');
     }
 
+   
     
 }

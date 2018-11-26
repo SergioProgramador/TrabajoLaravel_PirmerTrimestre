@@ -19,17 +19,17 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="name">Name:</label>
-            <input type="text" class="form-control" name="name" value={{$grade->name}} />
+            <input type="text" class="form-control" name="name" value={{$grade->name}} style="width:200px"/>
         </div>
 
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="level">Level:</label>
-            <input type="text" class="form-control" name="level" value={{$grade->level}} />
+            <input type="text" class="form-control" name="level" value={{$grade->level}} style="width:200px"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{url('/listgrade')}}" class="btn btn-light">Cancelar</a>
+        <a href="{{url('/listgrade')}}" class="btn btn-light">Cancel</a>
         </form>
     </div>
 </div>

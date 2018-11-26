@@ -49,8 +49,19 @@ Route::get('/addpetition','PetitionController@create');
 Route::post('/addpetition','PetitionController@store');
 //Mostrar las solicitudes
 Route::get('/listpetitions', 'PetitionController@index');
+//Editar una solicitud
+Route::get('/editpetition/{id}','PetitionController@edit');
+Route::put('/editpetition/{id}','PetitionController@update');
+//Eliminar una solicitud
+Route::delete('/delpetition/{id}', 'PetitionController@destroy');
 
 //RUTAS PARA LOS LISTADOS
+Route::get('/listDate', 'PetitionController@list1');
+Route::get('/listGrades', 'PetitionController@list2');
+
+
+
+
 
 
 Route::get('/home', 'HomeController@index')->name('home');
