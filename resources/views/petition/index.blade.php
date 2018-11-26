@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h3>LISTADO DE SOLICITUDES</h3>
+    <h3>PETITION LIST</h3>
     <table class="table table-striped table-hover">
         <thead>
             <tr>
@@ -20,12 +20,12 @@
                     <td>{{$petition->petitions_grades->name}}</td>
                     <td>{{$petition->type}}</td>
                     <td>{{$petition->n_students}}</td>
-                        <td><a class="btn btn-primary">Editar</a></td>
+                        <td><a class="btn btn-primary">Edit</a></td>
                     <td>
                         <form method="post">
                         {{csrf_field()}}
                         <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                        <button class="btn btn-danger" type="submit">Delete</button>
                         </form>
                     </td>   
                 </tr>

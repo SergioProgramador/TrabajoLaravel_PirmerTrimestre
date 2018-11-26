@@ -4,17 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Grade;
+use App\Study;
 class StudentController extends Controller
 {
     //FUNCION QUE DEVUELVE LA VISTA CREATE
     public function create(){
-        return view('student.create');
+        $grades = Grade::all();
+        $studies = Study::all();
+        return view('student.create', compact('grades','studies'));
     }
 
     public function index()
     {
-        $students = Student::orderBy('id')->paginate();
-                        
+        $students = Student::orderBy('id')->paginate();              
         return view('student.index',compact('students'));
     }  
     
@@ -48,7 +51,13 @@ class StudentController extends Controller
             'age' => $request->get('age'),
         ));
 
+        $study = new Study(array(
+            'id_grade'=> $request->get('id_grade'),
+        ));
+
         $student->save();
+        $study->save();
+
         return redirect('/liststudent')->with('status','You have created a new student.');
     }
     //ELIMINAR UN STUDENT

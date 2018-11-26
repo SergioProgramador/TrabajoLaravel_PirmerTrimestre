@@ -37,6 +37,14 @@
             <label for="age">Age:</label>
             <input type="text" class="form-control" name="age"/>
         </div>
+        <div class="form-group">
+        <label for="id_grade">Grade</label>
+        <select class="form-control" name="id_grade">
+            @foreach($grades as $grade)
+                <option value="{{$grade->id}}">{{$grade->name}}</option>
+            @endforeach
+        </select>
+    </div>
 
         <button type="submit" class="btn btn-primary">Create</button>
         <a href="{{url('/liststudent')}}" class="btn btn-light">Cancel</a>

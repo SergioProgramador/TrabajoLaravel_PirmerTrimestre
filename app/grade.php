@@ -22,5 +22,8 @@ class grade extends Model
     public function grades_petitions(){
         return $this->hasMany(Petition::class);
     }
+    public function student(){
+        return $this->hasMany(Student::class, 'id_student'); 
+    }
 }
 
