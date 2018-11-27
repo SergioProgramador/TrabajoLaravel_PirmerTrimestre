@@ -310,7 +310,7 @@ class ComposerStaticInitcb856f673d01b9527f48d16692a54c10
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-    );
+    ));
 
     public static $fallbackDirsPsr4 = array (
         0 => __DIR__ . '/..' . '/nesbot/carbon/src',
