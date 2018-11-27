@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company;
+use App\Petition;
 
 class CompanyController extends Controller
 {
@@ -57,11 +58,14 @@ class CompanyController extends Controller
     public function destroy(Request $request, $id)
     {
         $company = Company::find($id);
-        $company->delete();
-
-        $request->session()->flash('alert-success', 'Company was eliminated!');
-
-        return back();
+        $petitions = Petition::where('id_company', $id)->with('petitions_companies')->get();        
+        if($petitions==$id){
+            $request->session()->flash('alert-success', 'There is a petition created by this company!');  
+        }else{    
+            $company->delete();
+            $request->session()->flash('alert-success', 'Company was eliminated!');     
+        }
+        return view('company.index', compact('company', 'petitions', 'id'));
     }
 
 }
