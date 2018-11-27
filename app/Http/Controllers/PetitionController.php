@@ -72,8 +72,8 @@ class PetitionController extends Controller
     {
         $companies = Company::all();
         $grades = Grade::all();
-        $petition = Petition::find($id);
-        return view('petition.edit', compact('petition', 'id', 'companies', 'grades'));
+        $petitions = Petition::find($id);
+        return view('petition.edit', compact('petitions', 'id', 'companies', 'grades'));
     }
 
     //METODO ACTUALIZAR
@@ -81,16 +81,16 @@ class PetitionController extends Controller
     {
         $companies = Company::all();
         $grades = Grade::all();
-        $petition = Petition::find($id);
-        $petition -> id_company = $request -> id_company;
-        $petition -> id_grade = $request -> id_grade;
-        $petition -> type = $request -> type;
-        $petition -> n_students = $request -> n_students;
-        
+        $petitions = Petition::find($id);
+        $petitions -> id_company = $request -> id_company;
+        $petitions -> id_grade = $request -> id_grade;
+        $petitions -> type = $request -> type;
+        $petitions -> n_students = $request -> n_students;
+          
+        $petitions -> save();
         $request->session()->flash('alert-success', 'Petition was successful edited!');
-        $petition -> save();
 
-        return view('petition.index', compact('petition', 'companies', 'grades', 'id'));
+        return redirect('/listpetitions');
     }
 
     //ELIMINAR UNA PETICION

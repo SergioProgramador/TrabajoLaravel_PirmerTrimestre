@@ -59,13 +59,13 @@ class CompanyController extends Controller
     {
         $company = Company::find($id);
         $petitions = Petition::where('id_company', $id)->with('petitions_companies')->get();        
-        if($petitions==$id){
+        if($petitions->isNotEmpty()){
             $request->session()->flash('alert-success', 'There is a petition created by this company!');  
         }else{    
             $company->delete();
             $request->session()->flash('alert-success', 'Company was eliminated!');     
         }
-        return view('company.index', compact('company', 'petitions', 'id'));
+        return back();
     }
 
 }

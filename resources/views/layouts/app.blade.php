@@ -55,9 +55,9 @@
 
                     <span class="navbar-brand">
                         <span class="dropdown">
-                                    <a  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                    <span  href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                         Listings <span class="caret"></span>
-                                    </a>
+                                    </span>
 
                                     <ul class="dropdown-menu">
                                         <li>

@@ -12,7 +12,7 @@
     </div><br />
 @endif
     <div class="row">
-    <form method="POST" action="{{url('editpetition')}}/{{$petition->id}}" >
+    <form method="POST" action="{{url('editpetition')}}/{{$petitions->id}}" >
         {{csrf_field()}}
         {{method_field('PUT')}}
         <!--<input name="_method" type="hidden" value="PUT">-->
@@ -50,16 +50,13 @@
         <div class="form-group">
             <input type="hidden" value="{{csrf_token()}}" name="_token" />
             <label for="n_students">Nº Students:</label>
-            <input type="text" class="form-control" name="n_students" value={{$petition->n_students}} style="width:200px" required/>
+            <input type="text" class="form-control" name="n_students" value={{$petitions->n_students}} style="width:200px" required/>
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
         <a href="{{url('/listpetitions')}}" class="btn btn-light">Cancel</a>
         </form>
-        
-
-        
-        
+    
     </div>
 </div>
 @endsection
