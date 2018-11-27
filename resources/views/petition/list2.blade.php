@@ -15,8 +15,12 @@
         </div>
         <button type="submit" class="btn btn-success">Search</button>
     </form> 
+    
+    <form method="get" action="{{url('/pdflist2')}}">
+    {{csrf_field()}}
+    <button type="submit" class='btn btn-info'>Print List</button>
+    </form>
     <br>
-
     <div style="text-align: center">
         <table class="table table-striped table-hover">
             <thead>
