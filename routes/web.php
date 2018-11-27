@@ -59,9 +59,14 @@ Route::delete('/delpetition/{id}', 'PetitionController@destroy');
 Route::get('/listDate', 'PetitionController@list1');
 Route::get('/listGrades', 'PetitionController@list2');
 
-
-
-
-
-
+Route::get('pdflist1', function(){
+    $petitions=App\Petition::all();
+    $pdf=PDF::loadView('list', ['petitions'=> $petitions]);
+    return $pdf->download('petitionsbydate.pdf');
+});
+Route::get('pdflist2', function(){
+    $petitions=App\Petition::all();
+    $pdf=PDF::loadView('list2', ['petitions'=> $petitions]);
+    return $pdf->download('petitionsbygrade.pdf');
+});
 Route::get('/home', 'HomeController@index')->name('home');

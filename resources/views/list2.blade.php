@@ -1,25 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.print')
 
 @section('content')
 <div class="container">
     <h3 style="text-align: center">PETITIONS ORDER BY GRADES</h3>
 
-    <form class="navbar-form navbar-center pull-center" role="search">
-        <div class="form-group">
-            <select name="id_grade">
-                <option></option>
-                @foreach($grades as $grade)
-                    <option value="{{$grade->id}}">{{$grade->name}}</option>
-                @endforeach
-            </select>
-        </div>
-        <button type="submit" class="btn btn-success">Search</button>
-    </form> 
     
-    <form method="get" action="{{url('/pdflist2')}}">
-    {{csrf_field()}}
-    <button type="submit" class='btn btn-info'>Print List</button>
-    </form>
     <br>
     <div style="text-align: center">
         <table class="table table-striped table-hover">
